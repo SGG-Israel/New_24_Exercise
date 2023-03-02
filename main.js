@@ -323,7 +323,31 @@ function ex22() {
   }
 }
 // ================== Ex 23 ===================
-function ex23() {}
+function ex23() {
+  const buttStart = document.querySelector(".boxCounter2");
+  buttStart.classList.toggle("boxCounterShow");
+  let books = [];
+  document.querySelector(".addBooks").onclick = function () {
+    let bookName = document.querySelector(".bookName").value;
+    if (bookName === "") {
+      alert("Please enter book name");
+      return;
+    } else {
+      books.push(bookName);
+    }
+    console.log(books);
+    document.querySelector(".bookName").value = "";
+  };
+  document.querySelector(".displayBooks").onclick = function () {
+    let bookList = document.querySelector(".bookList");
+    bookList.innerHTML = "";
+    for (let i = 0; i < books.length; i++) {
+      let bookItem = document.createElement("li");
+      bookItem.appendChild(document.createTextNode(books[i]));
+      bookList.appendChild(bookItem);
+    }
+  };
+}
 // ================== Ex 24 ===================
 function ex24() {
   let foo = "Thursday";
